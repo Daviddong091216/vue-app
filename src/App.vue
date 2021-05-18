@@ -7,7 +7,12 @@
     <employee-form @add:employee="addEmployee" />
     <!-- match EmployeeTable.vue export name: "employee-table"-->
     <!-- v-bind:employees="employees" pass employees arrary data from App to EmployeeTable-->
-    <employee-table v-bind:employees="employees" />
+    <!-- capture the emit data, get data from its child component -->
+    <employee-table
+      v-bind:employees="employees"
+      @delete:employee="deleteEmployee"
+      @edit:employee="editEmployee"
+    />
   </div>
 </template>
 
@@ -52,6 +57,15 @@ export default {
       const newEmployee = { ...employee, id };
 
       this.employees = [...this.employees, newEmployee];
+    },
+    deleteEmployee(id) {
+      this.employees = this.employees.filter(employee => employee.id !== id);
+    },
+    // It will take id and updatedEmployee parameters, map through the employees array, and update the correct employee.
+    editEmployee(id, updatedEmployee) {
+      this.employees = this.employees.map(employee =>
+        employee.id === id ? updatedEmployee : employee
+      );
     }
   }
 };
