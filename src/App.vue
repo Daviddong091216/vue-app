@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="small-container">
-    <h1>Employees</h1>
+    <h1>WWT Internal IT Application Services Team Employees</h1>
     <!--  employee-form is broadcasting its emitted event, but we need to capture the event and value in the parent to work with it.-->
     <!--make employee-form acknowledge and handle the emitted event, and invoke a new method.  -->
     <!-- Get data from employee-form -->
@@ -31,18 +31,18 @@ export default {
       employees: [
         {
           id: 1,
-          name: "Richard Hendricks",
-          email: "richard@piedpiper.com"
+          name: "Sandi St. John",
+          email: "sandi@wwt.com"
         },
         {
           id: 2,
-          name: "Bertram Gilfoyle",
-          email: "gilfoyle@piedpiper.com"
+          name: "David Dong",
+          email: "david@wwt.com"
         },
         {
           id: 3,
-          name: "Dinesh Chugtai",
-          email: "dinesh@piedpiper.com"
+          name: "Aaron",
+          email: "aaron@wwt.com"
         }
       ]
     };

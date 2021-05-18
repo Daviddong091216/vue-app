@@ -14,6 +14,7 @@
         <!--  Vue has a requirement for uniquely identifying any element in an array, so we'll use :key on the table row and set it to a unique value.-->
 
         <tr v-for="employee in employees" :key="employee.id">
+          <!-- To make it editable, we'll check if editing === employee.id is true for a particular row, and display and input instead.  -->
           <td v-if="editing === employee.id">
             <input type="text" v-model="employee.name" />
           </td>
@@ -24,7 +25,7 @@
           <td v-else>{{ employee.email }}</td>
           <td v-if="editing === employee.id">
             <button @click="editEmployee(employee)">Save</button>
-            <button class="muted-button" @click="editing=null">
+            <button class="muted-button" @click="editing = null">
               Cancel
             </button>
           </td>
@@ -50,8 +51,8 @@ export default {
   },
   data() {
     return {
-      editing: null,
-      cachedEmployee: {}
+      editing: null
+      //   cachedEmployee: {}
     };
   },
   methods: {
